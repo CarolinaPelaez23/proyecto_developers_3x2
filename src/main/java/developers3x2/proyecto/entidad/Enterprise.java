@@ -13,6 +13,15 @@ public class Enterprise {
     private Transaction transactions;
     private Date createdAt;
     private Date updatedAt;
+    private boolean estado;
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     public Enterprise(long id) {
         this.id = id;
