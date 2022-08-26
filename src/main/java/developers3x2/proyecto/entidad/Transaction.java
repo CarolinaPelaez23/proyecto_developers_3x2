@@ -5,17 +5,17 @@ public class Transaction {
     private long id;
     private String concept;
     private float amount;
-    private user User;
-    private enterprise Enterprise;
+    private User user;
+    private Enterprise enterprise;
     private Date createdAt;
     private Date  updateAt;
 
-    public Transaction(long id, String concept, float amount, user user, enterprise enterprise, Date createdAt, Date updateAt) {
+    public Transaction(long id, String concept, float amount, User user, Enterprise enterprise, Date createdAt, Date updateAt) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
-        User = user;
-        Enterprise = enterprise;
+        this.user = user;
+        this.enterprise = enterprise;
         this.createdAt = createdAt;
         this.updateAt = updateAt;
     }
@@ -44,20 +44,20 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public user getUser() {
-        return User;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser(user user) {
-        User = user;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public enterprise getEnterprise() {
-        return Enterprise;
+    public Enterprise getEnterprise() {
+        return enterprise;
     }
 
-    public void setEnterprise(enterprise enterprise) {
-        Enterprise = enterprise;
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
     }
 
     public Date getCreatedAt() {
