@@ -1,5 +1,6 @@
 package developers3x2.proyecto.entidad;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class employee {
@@ -11,6 +12,17 @@ public class employee {
     private Transaction[] transaction;
     private Date updateAt;
     private Date createdAt;
+
+    public employee(long id, String email, Profile profile, Enum_RoleName role, Enterprise enterprise, Transaction[] transaction, Date updateAt, Date createdAt) {
+        this.id = id;
+        this.email = email;
+        this.profile = profile;
+        this.role = role;
+        this.enterprise = enterprise;
+        this.transaction = transaction;
+        this.updateAt = updateAt;
+        this.createdAt = createdAt;
+    }
 
     public long getId() {
         return id;
@@ -74,5 +86,19 @@ public class employee {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    @Override
+    public String toString() {
+        return "employee{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", profile=" + profile +
+                ", role=" + role +
+                ", enterprise=" + enterprise +
+                ", transaction=" + Arrays.toString(transaction) +
+                ", updateAt=" + updateAt +
+                ", createdAt=" + createdAt +
+                '}';
     }
 }
