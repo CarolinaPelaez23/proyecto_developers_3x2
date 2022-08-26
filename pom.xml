@@ -12,14 +12,14 @@
 	<artifactId>proyecto</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>proyecto</name>
-	<description>Proyecto final ciclo 3</description>
+	<description>proyecto final ciclo 3</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>
