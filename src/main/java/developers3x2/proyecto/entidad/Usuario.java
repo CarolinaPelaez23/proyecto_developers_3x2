@@ -109,14 +109,14 @@ public class Usuario {
     public String toString() {
         return "Usuario{" +
                 "idUser=" + idUser +
-          //      ", email='" + email + '\'' +
-          //      ", profile=" + profile +
-           //     ", role=" + role +
+                ", email='" + email + '\'' +
+                ", profile=" + profile +
+                ", role=" + role +
                 ", enterprise=" + enterprise.getName() +
-          //      ", transaction=" + transaction +
-         //       ", updateAt=" + updateAt +
-         //       ", createdAt=" + createdAt +
-        //        ", estado=" + estado +
+                ", transaction=" + transaction +
+                ", updateAt=" + updateAt +
+                ", createdAt=" + createdAt +
+                ", estado=" + estado +
                 '}';
     }
 }

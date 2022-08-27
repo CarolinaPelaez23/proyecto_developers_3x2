@@ -141,6 +141,7 @@ public class Enterprise {
                 ", document='" + document + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
+                ", users=" + users +
                 ", transactions=" + transactions +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
