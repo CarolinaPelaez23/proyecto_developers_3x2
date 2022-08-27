@@ -9,15 +9,37 @@ public class Transaction {
     private Enterprise enterprise;
     private Date createdAt;
     private Date  updateAt;
+    private boolean estado;
 
-    public Transaction(long id, String concept, float amount, User user, Enterprise enterprise, Date createdAt, Date updateAt) {
+    public Transaction(long id, String concept, float amount, User user, Enterprise enterprise, boolean estado) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
         this.user = user;
         this.enterprise = enterprise;
-        this.createdAt = createdAt;
-        this.updateAt = updateAt;
+        this.estado = estado;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", concept='" + concept + '\'' +
+                ", amount=" + amount +
+                ", user=" + user +
+                ", enterprise=" + enterprise +
+                ", createdAt=" + createdAt +
+                ", updateAt=" + updateAt +
+                ", estado=" + estado +
+                '}';
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public long getId() {

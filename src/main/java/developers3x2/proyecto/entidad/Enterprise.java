@@ -15,6 +15,15 @@ public class Enterprise {
     private Date updatedAt;
     private boolean estado;
 
+    public Enterprise(long id, String name, String document, String phone, String address,  boolean estado) {
+        this.id = id;
+        this.name = name;
+        this.document = document;
+        this.phone = phone;
+        this.address = address;
+        this.estado = estado;
+    }
+
     public boolean isEstado() {
         return estado;
     }
@@ -111,6 +120,7 @@ public class Enterprise {
                 ", transactions=" + transactions +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
+                ", estado=" + estado +
                 '}';
     }
 }

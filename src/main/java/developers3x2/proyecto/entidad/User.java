@@ -15,7 +15,7 @@ public class User {
     private Date createdAt;
     private boolean estado;
 
-    public User(String email, Profile profile, Enum_RoleName role, Enterprise enterprise, boolean estado) {
+    public User(String email, Profile profile, RoleName role, Enterprise enterprise, boolean estado) {
         this.email = email;
         this.profile = profile;
         this.role = role;
