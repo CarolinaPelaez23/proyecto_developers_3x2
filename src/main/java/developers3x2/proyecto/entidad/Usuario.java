@@ -3,32 +3,33 @@ package developers3x2.proyecto.entidad;
 import java.util.Arrays;
 import java.util.Date;
 
-public class User {
+public class Usuario {
 
-    private long id;
+    private long idUser;
     private String email;
     private Profile profile;
-    private Enum_RoleName role;
+    private RoleName role;
     private Enterprise enterprise;
     private Transaction[] transaction;
     private Date updateAt;
     private Date createdAt;
     private boolean estado;
 
-    public User(String email, Profile profile, RoleName role, Enterprise enterprise, boolean estado) {
+    public Usuario(long idUser, String email, RoleName role, Enterprise enterprise, boolean estado) {
+        this.idUser = idUser;
         this.email = email;
-        this.profile = profile;
         this.role = role;
         this.enterprise = enterprise;
+        this.createdAt = new Date();
         this.estado = estado;
     }
 
-    public long getId() {
-        return id;
+    public long getIdUser() {
+        return idUser;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public String getEmail() {
@@ -43,15 +44,15 @@ public class User {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void setProfile(Profile perfil) {
+        this.profile = perfil;
     }
 
-    public Enum_RoleName getRole() {
+    public RoleName getRole() {
         return role;
     }
 
-    public void setRole(Enum_RoleName role) {
+    public void setRole(RoleName role) {
         this.role = role;
     }
 
@@ -97,8 +98,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
+        return "Usuario{" +
+                "idUser=" + idUser +
                 ", email='" + email + '\'' +
                 ", profile=" + profile +
                 ", role=" + role +

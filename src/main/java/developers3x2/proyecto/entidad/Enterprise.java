@@ -9,7 +9,7 @@ public class Enterprise {
     private String document;
     private String phone;
     private String address;
-    private User users;
+    private Usuario users;
     private Transaction transactions;
     private Date createdAt;
     private Date updatedAt;
@@ -21,6 +21,7 @@ public class Enterprise {
         this.document = document;
         this.phone = phone;
         this.address = address;
+        this.createdAt  = new Date();
         this.estado = estado;
     }
 
@@ -76,11 +77,11 @@ public class Enterprise {
         this.address = address;
     }
 
-    public User getUsers() {
+    public Usuario getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(Usuario users) {
         this.users = users;
     }
 

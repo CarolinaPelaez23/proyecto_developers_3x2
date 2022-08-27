@@ -4,19 +4,20 @@ import java.util.Date;
 public class Transaction {
     private long id;
     private String concept;
-    private float amount;
-    private User user;
+    private Double amount;
+    private Usuario user;
     private Enterprise enterprise;
     private Date createdAt;
     private Date  updateAt;
     private boolean estado;
 
-    public Transaction(long id, String concept, float amount, User user, Enterprise enterprise, boolean estado) {
+    public Transaction(long id, String concept, Double amount, Usuario user, Enterprise enterprise, boolean estado) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
         this.user = user;
         this.enterprise = enterprise;
+        this.createdAt  = new Date();
         this.estado = estado;
     }
 
@@ -58,19 +59,19 @@ public class Transaction {
         this.concept = concept;
     }
 
-    public float getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    public User getUser() {
+    public Usuario getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Usuario user) {
         this.user = user;
     }
 

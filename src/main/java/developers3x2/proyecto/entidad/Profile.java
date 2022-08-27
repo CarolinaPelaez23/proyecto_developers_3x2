@@ -7,15 +7,18 @@ public class Profile {
     private String id;
     private String image;
     private String phone;
-    private User user;
+    private Usuario user;
     private Date createdAt;
     private Date updatedAt;
+    private boolean estado;
 
-    public Profile(String id, String image, String phone, User user) {
+    public Profile(String id, String image, String phone, Usuario user, boolean estado) {
         this.id = id;
         this.image = image;
         this.phone = phone;
         this.user = user;
+        this.createdAt  = new Date();
+        this.estado = true;
     }
 
     public String getId() {
@@ -42,11 +45,11 @@ public class Profile {
         this.phone = phone;
     }
 
-    public User getUser() {
+    public Usuario getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Usuario user) {
         this.user = user;
     }
 
