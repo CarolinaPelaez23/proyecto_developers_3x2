@@ -1,6 +1,8 @@
 package developers3x2.proyecto.entidad;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Enterprise {
 
@@ -9,8 +11,8 @@ public class Enterprise {
     private String document;
     private String phone;
     private String address;
-    private Usuario users;
-    private Transaction transactions;
+    private ArrayList<Usuario> users;
+    private ArrayList<Transaction> transactions;
     private Date createdAt;
     private Date updatedAt;
     private boolean estado;
@@ -21,6 +23,8 @@ public class Enterprise {
         this.document = document;
         this.phone = phone;
         this.address = address;
+        this.users = new ArrayList<Usuario>();
+        this.transactions = new ArrayList<Transaction>();
         this.createdAt  = new Date();
         this.estado = estado;
     }
@@ -30,7 +34,9 @@ public class Enterprise {
     }
 
     public void setEstado(boolean estado) {
+
         this.estado = estado;
+        setUpdatedAt(new Date());
     }
 
     public Enterprise(long id) {
@@ -43,6 +49,7 @@ public class Enterprise {
 
     public void setId(long id) {
         this.id = id;
+        setUpdatedAt(new Date());
     }
 
     public String getName() {
@@ -51,6 +58,21 @@ public class Enterprise {
 
     public void setName(String name) {
         this.name = name;
+        setUpdatedAt(new Date());
+    }
+
+    public ArrayList<Usuario> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<Usuario> users) {
+        this.users = users;
+        setUpdatedAt(new Date());
+    }
+
+    public void addUsers(Usuario user) {
+        this.users.add(user);
+        setUpdatedAt(new Date());
     }
 
     public String getDocument() {
@@ -59,6 +81,7 @@ public class Enterprise {
 
     public void setDocument(String document) {
         this.document = document;
+        setUpdatedAt(new Date());
     }
 
     public String getPhone() {
@@ -67,6 +90,7 @@ public class Enterprise {
 
     public void setPhone(String phone) {
         this.phone = phone;
+        setUpdatedAt(new Date());
     }
 
     public String getAddress() {
@@ -75,22 +99,22 @@ public class Enterprise {
 
     public void setAddress(String address) {
         this.address = address;
+        setUpdatedAt(new Date());
     }
 
-    public Usuario getUsers() {
-        return users;
-    }
 
-    public void setUsers(Usuario users) {
-        this.users = users;
-    }
-
-    public Transaction getTransactions() {
+    public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(Transaction transactions) {
+    public void setTransactions(ArrayList<Transaction> transactions) {
         this.transactions = transactions;
+        setUpdatedAt(new Date());
+    }
+
+    public void addTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
+        setUpdatedAt(new Date());
     }
 
     public Date getCreatedAt() {
@@ -117,7 +141,6 @@ public class Enterprise {
                 ", document='" + document + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                ", users=" + users +
                 ", transactions=" + transactions +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

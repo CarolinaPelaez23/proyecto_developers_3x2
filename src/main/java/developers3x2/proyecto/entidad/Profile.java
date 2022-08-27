@@ -27,6 +27,7 @@ public class Profile {
 
     public void setId(String id) {
         this.id = id;
+        setUpdatedAt(new Date());
     }
 
     public String getImage() {
@@ -35,6 +36,7 @@ public class Profile {
 
     public void setImage(String image) {
         this.image = image;
+        setUpdatedAt(new Date());
     }
 
     public String getPhone() {
@@ -43,6 +45,7 @@ public class Profile {
 
     public void setPhone(String phone) {
         this.phone = phone;
+        setUpdatedAt(new Date());
     }
 
     public Usuario getUser() {
@@ -51,6 +54,7 @@ public class Profile {
 
     public void setUser(Usuario user) {
         this.user = user;
+        setUpdatedAt(new Date());
     }
 
     public Date getCreatedAt() {

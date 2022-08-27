@@ -1,5 +1,6 @@
 package developers3x2.proyecto.entidad;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class Usuario {
     private Profile profile;
     private RoleName role;
     private Enterprise enterprise;
-    private Transaction[] transaction;
+    private ArrayList<Transaction> transaction;
     private Date updateAt;
     private Date createdAt;
     private boolean estado;
@@ -19,6 +20,7 @@ public class Usuario {
         this.idUser = idUser;
         this.email = email;
         this.role = role;
+        this.transaction = new ArrayList<Transaction>();
         this.enterprise = enterprise;
         this.createdAt = new Date();
         this.estado = estado;
@@ -30,6 +32,7 @@ public class Usuario {
 
     public void setIdUser(long idUser) {
         this.idUser = idUser;
+        setUpdateAt(new Date());
     }
 
     public String getEmail() {
@@ -38,6 +41,7 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+        setUpdateAt(new Date());
     }
 
     public Profile getProfile() {
@@ -46,6 +50,7 @@ public class Usuario {
 
     public void setProfile(Profile perfil) {
         this.profile = perfil;
+        setUpdateAt(new Date());
     }
 
     public RoleName getRole() {
@@ -54,6 +59,7 @@ public class Usuario {
 
     public void setRole(RoleName role) {
         this.role = role;
+        setUpdateAt(new Date());
     }
 
     public Enterprise getEnterprise() {
@@ -62,14 +68,16 @@ public class Usuario {
 
     public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
+        setUpdateAt(new Date());
     }
 
-    public Transaction[] getTransaction() {
+    public ArrayList<Transaction> getTransaction() {
         return transaction;
     }
 
-    public void setTransaction(Transaction[] transaction) {
+    public void setTransaction(ArrayList<Transaction> transaction) {
         this.transaction = transaction;
+        setUpdateAt(new Date());
     }
 
     public Date getUpdateAt() {
@@ -94,20 +102,21 @@ public class Usuario {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+        setUpdateAt(new Date());
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "idUser=" + idUser +
-                ", email='" + email + '\'' +
-                ", profile=" + profile +
-                ", role=" + role +
-                ", enterprise=" + enterprise +
-                ", transaction=" + Arrays.toString(transaction) +
-                ", updateAt=" + updateAt +
-                ", createdAt=" + createdAt +
-                ", estado=" + estado +
+          //      ", email='" + email + '\'' +
+          //      ", profile=" + profile +
+           //     ", role=" + role +
+                ", enterprise=" + enterprise.getName() +
+          //      ", transaction=" + transaction +
+         //       ", updateAt=" + updateAt +
+         //       ", createdAt=" + createdAt +
+        //        ", estado=" + estado +
                 '}';
     }
 }

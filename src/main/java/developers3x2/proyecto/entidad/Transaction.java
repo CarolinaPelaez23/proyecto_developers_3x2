@@ -21,26 +21,13 @@ public class Transaction {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-        return "Transaction{" +
-                "id=" + id +
-                ", concept='" + concept + '\'' +
-                ", amount=" + amount +
-                ", user=" + user +
-                ", enterprise=" + enterprise +
-                ", createdAt=" + createdAt +
-                ", updateAt=" + updateAt +
-                ", estado=" + estado +
-                '}';
-    }
-
     public boolean isEstado() {
         return estado;
     }
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+        setUpdateAt(new Date());
     }
 
     public long getId() {
@@ -49,6 +36,7 @@ public class Transaction {
 
     public void setId(long id) {
         this.id = id;
+        setUpdateAt(new Date());
     }
 
     public String getConcept() {
@@ -57,6 +45,7 @@ public class Transaction {
 
     public void setConcept(String concept) {
         this.concept = concept;
+        setUpdateAt(new Date());
     }
 
     public Double getAmount() {
@@ -65,6 +54,7 @@ public class Transaction {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+        setUpdateAt(new Date());
     }
 
     public Usuario getUser() {
@@ -73,6 +63,7 @@ public class Transaction {
 
     public void setUser(Usuario user) {
         this.user = user;
+        setUpdateAt(new Date());
     }
 
     public Enterprise getEnterprise() {
@@ -81,6 +72,7 @@ public class Transaction {
 
     public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
+        setUpdateAt(new Date());
     }
 
     public Date getCreatedAt() {
@@ -97,5 +89,19 @@ public class Transaction {
 
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", concept='" + concept + '\'' +
+                ", amount=" + amount +
+                ", user=" + user.getIdUser() +
+                ", enterprise=" + enterprise.getName() +
+                ", createdAt=" + createdAt +
+                ", updateAt=" + updateAt +
+                ", estado=" + estado +
+                '}';
     }
 }
