@@ -47,21 +47,30 @@ public class EnterpriseService implements IEnterpiseService {
     @Override
     public Enterprise createEnterprise(Enterprise empresa) {
         Enterprise empresa1 = new Enterprise(empresa.getId(), empresa.getName(), empresa.getDocument(), empresa.getPhone(), empresa.getAddress(), empresa.isEstado());
-        Usuario usuario1 = empresa.getUsers();
+        Usuario usuario1 = new Usuario(1, "admin@banclombia.com", RoleName.Admin, empresa1, true);
         Transaction movimiento1 = new Transaction(12, "compra de equipos", 32434.4, usuario1, empresa1, true);
 
         empresa1.addUsers(usuario1);
         empresa1.addTransaction(movimiento1);
-        return null;
+        return empresa1;
     }
 
     @Override
     public Enterprise updateEnterprise(int id, Enterprise empresa) {
-        return null;
+        Enterprise empresa1 = findById(id);
+        empresa1.setName(empresa.getName());
+        empresa1.setDocument(empresa.getDocument());
+        empresa1.setPhone(empresa.getPhone());
+        empresa1.setAddress(empresa.getAddress());
+        empresa1.setEstado(empresa.isEstado());
+        empresa1.setUsers(empresa.getUsers());
+        empresa1.setTransactions(empresa.getTransactions());
+
+        return empresa1;
     }
 
     @Override
     public void deleteEnterprise(int id) {
-
+        Enterprise empresa1 = findById(id);
     }
 }
