@@ -16,10 +16,12 @@ public class ProyectoApplication {
 		Profile perfil = new Profile("1", "fdsf.jpg","324342342", usuario, true);
 		Transaction movimiento = new Transaction(12, "compra de equipos", 32434.4, usuario, bancolombia, true);
 		System.out.println("\n"+bancolombia.toString());
+
 		bancolombia.addUsers(usuario);
 		bancolombia.addTransaction(movimiento);
-
-		System.out.println(bancolombia.toString());
+		usuario.setEmail("juanito@tutu.com");
+		bancolombia.setAddress("crr 35 #45 66");
+		System.out.println("\n"+bancolombia.toString());
 	}
 
 
