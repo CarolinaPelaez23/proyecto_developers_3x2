@@ -13,7 +13,7 @@ public class ProyectoApplication {
 
 		Enterprise bancolombia = new Enterprise(2, "Bancolombia", "34.234.345", "312 344 2345", "cqaler 123", true);
 		Usuario usuario = new Usuario(1, "admin@banclombia.com", RoleName.Admin, bancolombia, true);
-		Profile perfil = new Profile("1", "fdsf.jpg","324342342", usuario, true);
+		Profile perfil = new Profile("1", "fdsf.jpg","324342342", usuario, true, nombre);
 		Transaction movimiento = new Transaction(12, "compra de equipos", 32434.4, usuario, bancolombia, true);
 		System.out.println("\n"+bancolombia.toString());
 

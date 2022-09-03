@@ -5,20 +5,18 @@ import java.util.Date;
 public class Profile {
 
     private String id;
+    private String nombre;
     private String image;
     private String phone;
-    private Usuario user;
     private Date createdAt;
     private Date updatedAt;
-    private boolean estado;
 
-    public Profile(String id, String image, String phone, Usuario user, boolean estado) {
+    public Profile(String id, String nombre, String image, String phone) {
         this.id = id;
+        this.nombre = nombre;
         this.image = image;
         this.phone = phone;
-        this.user = user;
-        this.createdAt  = new Date();
-        this.estado = true;
+        this.createdAt = new Date();
     }
 
     public String getId() {
@@ -27,7 +25,14 @@ public class Profile {
 
     public void setId(String id) {
         this.id = id;
-        setUpdatedAt(new Date());
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getImage() {
@@ -36,7 +41,6 @@ public class Profile {
 
     public void setImage(String image) {
         this.image = image;
-        setUpdatedAt(new Date());
     }
 
     public String getPhone() {
@@ -45,16 +49,6 @@ public class Profile {
 
     public void setPhone(String phone) {
         this.phone = phone;
-        setUpdatedAt(new Date());
-    }
-
-    public Usuario getUser() {
-        return user;
-    }
-
-    public void setUser(Usuario user) {
-        this.user = user;
-        setUpdatedAt(new Date());
     }
 
     public Date getCreatedAt() {
@@ -77,9 +71,9 @@ public class Profile {
     public String toString() {
         return "Profile{" +
                 "id='" + id + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", image='" + image + '\'' +
                 ", phone='" + phone + '\'' +
-                ", user=" + user +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

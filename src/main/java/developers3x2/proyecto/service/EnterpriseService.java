@@ -12,7 +12,7 @@ public class EnterpriseService implements IEnterpiseService {
     public Enterprise findById(int id) {
         Enterprise empresa = new Enterprise(2, "Bancolombia", "34.234.345", "312 344 2345", "cqaler 123", true);
         Usuario usuario = new Usuario(1, "admin@banclombia.com", RoleName.Admin, empresa, true);
-        Profile perfil = new Profile("1", "fdsf.jpg","324342342", usuario, true);
+        Profile perfil = new Profile("1", "fdsf.jpg","324342342", usuario, true, nombre);
         Transaction movimiento = new Transaction(12, "compra de equipos", 32434.4, usuario, empresa, true);
 
         empresa.addUsers(usuario);
