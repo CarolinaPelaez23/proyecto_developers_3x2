@@ -4,7 +4,7 @@ import developers3x2.proyecto.entidad.Enterprise;
 
 import java.util.List;
 
-public interface IEnterpiseService {
+public interface IEnterpriseService {
     public Enterprise findById(int id);
 
     public List<Enterprise> findAll();

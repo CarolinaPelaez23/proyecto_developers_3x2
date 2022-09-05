@@ -8,18 +8,30 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class EnterpriseService implements IEnterpiseService {
+public class EnterpriseService implements IEnterpriseService {
     @Override
     public Enterprise findById(int id) {
 
         Enterprise empresa = new Enterprise();
+        List<Transaction> movimientos = new ArrayList<Transaction>();
+        Transaction movimiento1 = new Transaction(1, "Compra de equipo", -34567.8, true);
+        Transaction movimiento2 = new Transaction(2, "Venta de servicio", 200000.0, true);
+        Transaction movimiento3 = new Transaction(3, "Pago de servicios", -100045.8, true);
+        Transaction movimiento4 = new Transaction(4, "Arrendamiento de servidor", 4500000.0, true);
+        movimientos.add(movimiento1);
+        movimientos.add(movimiento2);
+        movimientos.add(movimiento3);
+        movimientos.add(movimiento4);
+
         empresa.setId(1);
+        empresa.setTransactions((ArrayList<Transaction>) movimientos);
         empresa.setName("Bancolombia");
         empresa.setDocument("34.234.345");
         empresa.setPhone("6947849");
         empresa.setAddress("Cl 15 5 21");
         empresa.setCreatedAt(new Date());
         empresa.setEstado(true);
+
         return empresa;
     }
 
@@ -27,6 +39,15 @@ public class EnterpriseService implements IEnterpiseService {
     public List<Enterprise> findAll() {
 
         List<Enterprise> enterprises = new ArrayList<Enterprise>();
+        List<Transaction> movimientos = new ArrayList<Transaction>();
+        Transaction movimiento1 = new Transaction(1, "Compra de equipo", -34567.8, true);
+        Transaction movimiento2 = new Transaction(2, "Venta de servicio", 200000.0, true);
+        Transaction movimiento3 = new Transaction(3, "Pago de servicios", -100045.8, true);
+        Transaction movimiento4 = new Transaction(4, "Arrendamiento de servidor", 4500000.0, true);
+        movimientos.add(movimiento1);
+        movimientos.add(movimiento2);
+        movimientos.add(movimiento3);
+        movimientos.add(movimiento4);
 
         Enterprise empresa1 = new Enterprise();
         empresa1.setId(1);
@@ -36,6 +57,8 @@ public class EnterpriseService implements IEnterpiseService {
         empresa1.setAddress("Cl 15 5 21");
         empresa1.setCreatedAt(new Date());
         empresa1.setEstado(true);
+        empresa1.setTransactions((ArrayList<Transaction>) movimientos);
+
         enterprises.add(empresa1);
 
         Enterprise empresa2 = new Enterprise();
@@ -46,6 +69,7 @@ public class EnterpriseService implements IEnterpiseService {
         empresa2.setAddress("Cl 22 110 12");
         empresa2.setCreatedAt(new Date());
         empresa2.setEstado(true);
+        empresa2.setTransactions((ArrayList<Transaction>) movimientos);
         enterprises.add(empresa2);
 
         return enterprises;

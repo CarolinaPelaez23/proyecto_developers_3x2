@@ -82,6 +82,7 @@ public class Enterprise {
     }
 
     public void setTransactions(ArrayList<Transaction> transactions) {
+        System.out.println(transactions);
         this.transactions = transactions;
         setUpdatedAt(new Date());
     }
