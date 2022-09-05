@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/api")
 public class UsuarioRestController {
     @Autowired
-    IUsuarioService usuarioService;
+    private IUsuarioService usuarioService;
 
     @GetMapping("/usuario/{id}")
     public Usuario findById(@PathVariable int id) {
