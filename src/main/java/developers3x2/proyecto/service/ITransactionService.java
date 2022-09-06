@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface ITransactionService {
 
-    public Transaction findById(int id);
+    public Transaction findById(int id_enterprise, int id);
 
-    public List<Transaction> findAll();
+    public List<Transaction> findAll(int id_enterprise);
 
-    public Transaction createTransaction(Transaction transaction);
+    public Transaction createTransaction(int id_enterprise, Transaction transaction);
 
-    public Transaction updateTransaction( int id,Transaction transaction);
+    public Transaction updateTransaction(int id_enterprise, int id,Transaction transaction);
 
-    public void deleteTransaction(int id);
+    public void deleteTransaction(int id_enterprise, int id);
 }

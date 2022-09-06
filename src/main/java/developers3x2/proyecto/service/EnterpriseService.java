@@ -14,10 +14,15 @@ public class EnterpriseService implements IEnterpriseService {
 
         Enterprise empresa = new Enterprise();
         List<Transaction> movimientos = new ArrayList<Transaction>();
-        Transaction movimiento1 = new Transaction(1, "Compra de equipo", -34567.8, true);
-        Transaction movimiento2 = new Transaction(2, "Venta de servicio", 200000.0, true);
-        Transaction movimiento3 = new Transaction(3, "Pago de servicios", -100045.8, true);
-        Transaction movimiento4 = new Transaction(4, "Arrendamiento de servidor", 4500000.0, true);
+        Transaction movimiento1 = new Transaction("Compra de equipo", -34567.8, true);
+        Transaction movimiento2 = new Transaction("Venta de servicio", 200000.0, true);
+        Transaction movimiento3 = new Transaction("Pago de servicios", -100045.8, true);
+        Transaction movimiento4 = new Transaction("Arrendamiento de servidor", 4500000.0, true);
+        movimiento1.setId(1);
+        movimiento2.setId(2);
+        movimiento3.setId(3);
+        movimiento4.setId(4);
+
         movimientos.add(movimiento1);
         movimientos.add(movimiento2);
         movimientos.add(movimiento3);
@@ -40,10 +45,15 @@ public class EnterpriseService implements IEnterpriseService {
 
         List<Enterprise> enterprises = new ArrayList<Enterprise>();
         List<Transaction> movimientos = new ArrayList<Transaction>();
-        Transaction movimiento1 = new Transaction(1, "Compra de equipo", -34567.8, true);
-        Transaction movimiento2 = new Transaction(2, "Venta de servicio", 200000.0, true);
-        Transaction movimiento3 = new Transaction(3, "Pago de servicios", -100045.8, true);
-        Transaction movimiento4 = new Transaction(4, "Arrendamiento de servidor", 4500000.0, true);
+        Transaction movimiento1 = new Transaction("Compra de equipo", -34567.8, true);
+        Transaction movimiento2 = new Transaction( "Venta de servicio", 200000.0, true);
+        Transaction movimiento3 = new Transaction("Pago de servicios", -100045.8, true);
+        Transaction movimiento4 = new Transaction("Arrendamiento de servidor", 4500000.0, true);
+        movimiento1.setId(1);
+        movimiento2.setId(2);
+        movimiento3.setId(3);
+        movimiento4.setId(4);
+
         movimientos.add(movimiento1);
         movimientos.add(movimiento2);
         movimientos.add(movimiento3);

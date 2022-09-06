@@ -11,8 +11,10 @@ public class Transaction {
     private Date  updateAt;
     private boolean estado;
 
-    public Transaction(long id, String concept, Double amount, boolean estado) {
-        this.id = id;
+    public Transaction() {
+
+    }
+    public Transaction(String concept, Double amount, boolean estado) {
         this.concept = concept;
         this.amount = amount;
         //this.user = user;
