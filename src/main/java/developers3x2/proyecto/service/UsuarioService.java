@@ -1,51 +1,51 @@
 package developers3x2.proyecto.service;
 
-import developers3x2.proyecto.entidad.RoleName;
+import developers3x2.proyecto.entidad.Profile;
 import developers3x2.proyecto.entidad.Usuario;
+import developers3x2.proyecto.repositories.IUsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService implements IUsuarioService{
-
+    @Autowired
+    private IUsuarioRepository usuarioRepository;
+    @Autowired
+    private ProfileService profileService;
 
     @Override
     public Usuario findById(int id) {
-        Usuario newUsuario = new Usuario(1, "mail@usuairo.com", RoleName.Admin, null, true);
-        return newUsuario;
+        Optional<Usuario> usuario = usuarioRepository.findById((long) id);
+        return usuario.get();
     }
 
     @Override
     public List<Usuario> findAll() {
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-        Usuario newUsuario1 = new Usuario(1, "mail@usuairo.com", RoleName.Admin, null, true);
-        Usuario newUsuario2 = new Usuario(1, "mail@usuairo.com", RoleName.Admin, null, true);
-        usuarios.add(newUsuario1);
-        usuarios.add(newUsuario2);
+        List<Usuario> usuarios = (List<Usuario>) usuarioRepository.findAll();
+
         return usuarios;
     }
 
     @Override
     public Usuario createUsuario(Usuario usuario) {
-        Usuario newUsuario = new Usuario(1, usuario.getEmail(), usuario.getRole(), usuario.getEnterprise(), usuario.isEstado());
-        return newUsuario;
+        Profile perfil = profileService.createProfile(usuario.getProfile());
+        usuario.setProfile(perfil);
+        return usuarioRepository.save(usuario);
     }
 
     @Override
     public Usuario updateUsuario(int id, Usuario usuario) {
-        Usuario newUsuario = findById(id);
-        newUsuario.setEmail(usuario.getEmail());
-        newUsuario.setRole(usuario.getRole());
-        newUsuario.setEnterprise(usuario.getEnterprise());
-        newUsuario.setEstado(usuario.isEstado());
-        return newUsuario;
+        Profile newPerfil = profileService.updateProfile( usuario.getProfile());
+        usuario.setProfile(newPerfil);
+        return usuarioRepository.save(usuario);
     }
 
     @Override
     public void deleteUsuario(int id) {
-        Usuario usuario = findById(id);
+        usuarioRepository.deleteById((long) id);
 
     }
 }

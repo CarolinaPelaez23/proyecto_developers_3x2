@@ -1,19 +1,32 @@
 package developers3x2.proyecto.entidad;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+@Entity
+@Table(name="empresas")
 public class Enterprise {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_empresa", nullable = false)
     private long id;
+    @Column(name="name")
     private String name;
+    @Column(name="document")
     private String document;
+    @Column(name="phone")
     private String phone;
+    @Column(name="address")
     private String address;
-    private ArrayList<Transaction> transactions;
+    @OneToMany
+    @JoinColumn(name="id_transaction")
+    private List<Transaction> transactions;
+    @Column(name="createAt")
     private Date createdAt = new Date();
+    @Column(name="updateAt")
     private Date updatedAt;
+    @Column(name="estado")
     private boolean estado;
 
 
@@ -77,11 +90,11 @@ public class Enterprise {
     }
 
 
-    public ArrayList<Transaction> getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(ArrayList<Transaction> transactions) {
+    public void setTransactions(List<Transaction> transactions) {
         System.out.println(transactions);
         this.transactions = transactions;
         setUpdatedAt(new Date());

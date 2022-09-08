@@ -1,20 +1,40 @@
 package developers3x2.proyecto.entidad;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name="Users")
 public class Usuario {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_user", nullable = false)
     private long idUser;
+    @Column(name="email", nullable = false)
     private String email;
+    @OneToOne
+    @JoinColumn(name="id_profile")
     private Profile profile;
+    @Column(name="id_rol", nullable = false)
     private RoleName role;
+    @ManyToOne
+    @JoinColumn(name="id_empresa")
     private Enterprise enterprise;
-    private ArrayList<Transaction> transaction;
+    @OneToMany
+    @JoinColumn(name="id_transaction")
+    private List<Transaction> transaction;
+    @Column(name="updateAt")
     private Date updateAt;
+    @Column(name="createAt")
     private Date createdAt;
+    @Column(name="estado", nullable = false)
     private boolean estado;
+
+    public Usuario() {
+    }
 
     public Usuario(long idUser, String email, RoleName role, Enterprise enterprise, boolean estado) {
         this.idUser = idUser;
@@ -71,11 +91,11 @@ public class Usuario {
         setUpdateAt(new Date());
     }
 
-    public ArrayList<Transaction> getTransaction() {
+    public List<Transaction> getTransaction() {
         return transaction;
     }
 
-    public void setTransaction(ArrayList<Transaction> transaction) {
+    public void setTransaction(List<Transaction> transaction) {
         this.transaction = transaction;
         setUpdateAt(new Date());
     }

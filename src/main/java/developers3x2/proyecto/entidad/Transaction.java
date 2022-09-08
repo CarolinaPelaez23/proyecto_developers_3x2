@@ -1,15 +1,28 @@
 package developers3x2.proyecto.entidad;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.*;
 import java.util.Date;
+
+@Entity
+@Table(name="transactions")
 public class Transaction {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_transaction", nullable = false)
     private long id;
+    @Column(name = "concept")
     private String concept;
+    @Column(name = "amount")
     private Double amount;
-    //private Usuario user;
-    //private Enterprise enterprise;
+    @Column(name = "createAt")
     private Date createdAt;
+    @Column(name = "updateAt")
     private Date  updateAt;
+    @Column(name = "estado", nullable = false)
     private boolean estado;
+
 
     public Transaction() {
 
