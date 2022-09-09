@@ -1,0 +1,11 @@
+Hola Git
+estamos haciendo un cambio
+<<<<<<< HEAD
+León ha realizado un cambio al archivo.
+=======
+hice un cambio Jefferson
+>>>>>>> refs/remotes/origin/master
+
+Juan Carlos Zorro realizo cambio en repositorio Git
+
+se agrego la rama development
