@@ -4,6 +4,8 @@ import developers3x2.proyecto.entidad.Profile;
 import developers3x2.proyecto.repositories.IProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +28,7 @@ public class ProfileService implements IProfileService {
 
     @Override
     public Profile createProfile(Profile perfil) {
+        perfil.setCreatedAt(new Date());
         return profileRepository.save(perfil);
     }
 
