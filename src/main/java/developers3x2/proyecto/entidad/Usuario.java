@@ -23,24 +23,21 @@ public class Usuario {
     @ManyToOne
     @JoinColumn(name="id_empresa")
     private Enterprise enterprise;
-    @OneToMany
-    @JoinColumn(name="id_transaction")
-    private List<Transaction> transaction;
-    @Column(name="updateAt")
+    @Column(name="update_at")
     private Date updateAt;
-    @Column(name="createAt")
+    @Column(name="create_at")
     private Date createdAt;
     @Column(name="estado", nullable = false)
     private boolean estado;
 
     public Usuario() {
+        this.createdAt = new Date();
     }
 
     public Usuario(long idUser, String email, RoleName role, Enterprise enterprise, boolean estado) {
         this.idUser = idUser;
         this.email = email;
         this.role = role;
-        this.transaction = new ArrayList<Transaction>();
         this.enterprise = enterprise;
         this.createdAt = new Date();
         this.estado = estado;
@@ -91,14 +88,6 @@ public class Usuario {
         setUpdateAt(new Date());
     }
 
-    public List<Transaction> getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(List<Transaction> transaction) {
-        this.transaction = transaction;
-        setUpdateAt(new Date());
-    }
 
     public Date getUpdateAt() {
         return updateAt;
@@ -128,12 +117,11 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "idUser=" + idUser +
+                "id_usuario=" + idUser +
                 ", email='" + email + '\'' +
                 ", profile=" + profile +
                 ", role=" + role +
                 ", enterprise=" + enterprise.getName() +
-                ", transaction=" + transaction +
                 ", updateAt=" + updateAt +
                 ", createdAt=" + createdAt +
                 ", estado=" + estado +

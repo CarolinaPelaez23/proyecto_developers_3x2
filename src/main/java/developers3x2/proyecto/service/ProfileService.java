@@ -31,6 +31,7 @@ public class ProfileService implements IProfileService {
 
     @Override
     public Profile updateProfile(Profile perfil) {
+        System.out.println("editando perfil");
         return profileRepository.save(perfil);
     }
 

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="transactions")
+@Table(name="transacciones")
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,17 +16,23 @@ public class Transaction {
     private String concept;
     @Column(name = "amount")
     private Double amount;
-    @Column(name = "createAt")
+    @Column(name = "create_at")
     private Date createdAt;
-    @Column(name = "updateAt")
+    @Column(name = "update_at")
     private Date  updateAt;
+
+    @ManyToOne
+    @JoinColumn(name="id_usuario")
+    private Usuario usuario;
+
     @Column(name = "estado", nullable = false)
     private boolean estado;
 
 
     public Transaction() {
-
+        this.createdAt = new Date();
     }
+
     public Transaction(String concept, Double amount, boolean estado) {
         this.concept = concept;
         this.amount = amount;
@@ -34,6 +40,14 @@ public class Transaction {
         //this.enterprise = enterprise;
         this.createdAt  = new Date();
         this.estado = estado;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public boolean isEstado() {

@@ -15,9 +15,9 @@ public class Profile {
     private String image;
     @Column(name="phone")
     private String phone;
-    @Column(name="createAt")
+    @Column(name="create_at")
     private Date createdAt;
-    @Column(name="updateAt")
+    @Column(name="update_at")
     private Date updatedAt;
 
     public Profile() {

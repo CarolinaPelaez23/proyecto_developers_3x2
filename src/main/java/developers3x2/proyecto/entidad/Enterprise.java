@@ -19,12 +19,9 @@ public class Enterprise {
     private String phone;
     @Column(name="address")
     private String address;
-    @OneToMany
-    @JoinColumn(name="id_transaction")
-    private List<Transaction> transactions;
-    @Column(name="createAt")
+    @Column(name="create_at")
     private Date createdAt = new Date();
-    @Column(name="updateAt")
+    @Column(name="update_at")
     private Date updatedAt;
     @Column(name="estado")
     private boolean estado;
@@ -89,22 +86,6 @@ public class Enterprise {
         setUpdatedAt(new Date());
     }
 
-
-    public List<Transaction> getTransactions() {
-        return transactions;
-    }
-
-    public void setTransactions(List<Transaction> transactions) {
-        System.out.println(transactions);
-        this.transactions = transactions;
-        setUpdatedAt(new Date());
-    }
-
-    public void addTransaction(Transaction transaction) {
-        this.transactions.add(transaction);
-        setUpdatedAt(new Date());
-    }
-
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -129,7 +110,6 @@ public class Enterprise {
                 ", document='" + document + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                ", transactions=" + transactions +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", estado=" + estado +
