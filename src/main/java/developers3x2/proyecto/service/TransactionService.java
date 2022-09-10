@@ -44,12 +44,10 @@ public class TransactionService implements ITransactionService {
     @Override
 
     public Transaction updateTransaction(int id_enterprise, int id, Transaction transaction) {
-<<<<<<< HEAD
         transaction.setCreatedAt(new Date());
         transaction.setId(id);
-=======
+
         transaction.setUpdateAt(new Date());
->>>>>>> b9376a2cf9ed75709350af242fd5cfc0d9fcd75b
         return transactionRepository.save(transaction);
     }
     @Override
