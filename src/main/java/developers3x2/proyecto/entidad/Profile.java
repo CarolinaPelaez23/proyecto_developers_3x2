@@ -21,7 +21,14 @@ public class Profile {
     private Date updatedAt;
 
     public Profile() {
+        this.createdAt = new Date();
+    }
 
+    public Profile(String nombre, String image, String phone) {
+        this.nombre = nombre;
+        this.image = image;
+        this.phone = phone;
+        this.createdAt = new Date();
     }
 
     public Long getId() {
@@ -60,7 +67,7 @@ public class Profile {
         updatedAt = new Date();
     }
 
-    public Date getCreatedAt() {
+    public Date getCreatedAt(Date date) {
         return createdAt;
     }
 

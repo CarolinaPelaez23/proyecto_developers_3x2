@@ -1,0 +1,52 @@
+objeto crear empresa
+
+{
+    "name": "Falabella",
+    "document": "900.001.001",
+    "phone": "601 002 2222",
+    "address": "Carrera 15 # 34-23",
+    "estado": true
+}
+
+para modificar
+{
+	"id": 3,
+    "name": "Falabella",
+    "document": "900.341.001",
+    "phone": "601 002 3333",
+    "address": "Carrera 15 # 34-23, Bogotá",
+    "estado": true
+}
+
+
+
+objeto para crear usuario
+
+{
+    "email": "lzapata@prueba.com",
+    "profile": {
+        "nombre": "CLaura Zapata",
+        "image": "imagen_002.lpg",
+        "phone": "321 111 2121"
+    },
+    "role": "Operario",
+    "enterprise": {
+        "id": 1
+    },
+    "estado": true
+}
+
+para modificar
+
+
+
+objeto para crear transaccion
+
+{
+    "concept": "Pago de factura 125",
+    "amount": 245000,
+    "usuario": {
+        "idUser": 2
+    },
+    "estado": true
+}

@@ -6,6 +6,7 @@ import developers3x2.proyecto.repositories.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,7 +32,9 @@ public class UsuarioService implements IUsuarioService{
 
     @Override
     public Usuario createUsuario(Usuario usuario) {
-        Profile perfil = profileService.createProfile(usuario.getProfile());
+        Profile perfil = usuario.getProfile();
+        perfil.setCreatedAt(new Date());
+        perfil = profileService.createProfile(perfil);
         usuario.setProfile(perfil);
         return usuarioRepository.save(usuario);
     }
@@ -47,6 +50,5 @@ public class UsuarioService implements IUsuarioService{
     @Override
     public void deleteUsuario(int id) {
         usuarioRepository.deleteById((long) id);
-
     }
 }
