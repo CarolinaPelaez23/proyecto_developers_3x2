@@ -1,26 +1,43 @@
 package developers3x2.proyecto.entidad;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Table(name="Users")
 public class Usuario {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_user", nullable = false)
     private long idUser;
+    @Column(name="email", nullable = false)
     private String email;
+    @OneToOne
+    @JoinColumn(name="id_profile")
     private Profile profile;
+    @Column(name="id_rol", nullable = false)
     private RoleName role;
+    @ManyToOne
+    @JoinColumn(name="id_empresa")
     private Enterprise enterprise;
-    private ArrayList<Transaction> transaction;
+    @Column(name="update_at")
     private Date updateAt;
+    @Column(name="create_at")
     private Date createdAt;
+    @Column(name="estado", nullable = false)
     private boolean estado;
+
+    public Usuario() {
+        this.createdAt = new Date();
+    }
 
     public Usuario(long idUser, String email, RoleName role, Enterprise enterprise, boolean estado) {
         this.idUser = idUser;
         this.email = email;
         this.role = role;
-        this.transaction = new ArrayList<Transaction>();
         this.enterprise = enterprise;
         this.createdAt = new Date();
         this.estado = estado;
@@ -71,14 +88,6 @@ public class Usuario {
         setUpdateAt(new Date());
     }
 
-    public ArrayList<Transaction> getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(ArrayList<Transaction> transaction) {
-        this.transaction = transaction;
-        setUpdateAt(new Date());
-    }
 
     public Date getUpdateAt() {
         return updateAt;
@@ -108,12 +117,11 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "idUser=" + idUser +
+                "id_usuario=" + idUser +
                 ", email='" + email + '\'' +
                 ", profile=" + profile +
                 ", role=" + role +
                 ", enterprise=" + enterprise.getName() +
-                ", transaction=" + transaction +
                 ", updateAt=" + updateAt +
                 ", createdAt=" + createdAt +
                 ", estado=" + estado +

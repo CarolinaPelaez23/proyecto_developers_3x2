@@ -1,30 +1,36 @@
 package developers3x2.proyecto.entidad;
 
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name="profiles")
 public class Profile {
-
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_profile", nullable = false)
+    private Long id;
+    @Column(name="nombre")
     private String nombre;
+    @Column(name="image")
     private String image;
+    @Column(name="phone")
     private String phone;
+    @Column(name="create_at")
     private Date createdAt;
+    @Column(name="update_at")
     private Date updatedAt;
 
-    public Profile(String id, String nombre, String image, String phone) {
-        this.id = id;
-        this.nombre = nombre;
-        this.image = image;
-        this.phone = phone;
-        this.createdAt = new Date();
+    public Profile() {
+
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+        updatedAt = new Date();
     }
 
     public String getNombre() {
@@ -33,6 +39,7 @@ public class Profile {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+        updatedAt = new Date();
     }
 
     public String getImage() {
@@ -41,6 +48,7 @@ public class Profile {
 
     public void setImage(String image) {
         this.image = image;
+        updatedAt = new Date();
     }
 
     public String getPhone() {
@@ -49,6 +57,7 @@ public class Profile {
 
     public void setPhone(String phone) {
         this.phone = phone;
+        updatedAt = new Date();
     }
 
     public Date getCreatedAt() {
