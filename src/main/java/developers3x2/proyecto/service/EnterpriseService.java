@@ -38,6 +38,7 @@ public class EnterpriseService implements IEnterpriseService {
 
     @Override
     public Enterprise updateEnterprise(int id, Enterprise empresa) {
+        empresa.setId(id);
         return enterpriseRepository.save(empresa);
     }
 

@@ -40,6 +40,7 @@ public class UsuarioService implements IUsuarioService{
     public Usuario updateUsuario(int id, Usuario usuario) {
         Profile newPerfil = profileService.updateProfile( usuario.getProfile());
         usuario.setProfile(newPerfil);
+        usuario.setIdUser(id);
         return usuarioRepository.save(usuario);
     }
 

@@ -44,24 +44,14 @@ public class TransactionService implements ITransactionService {
     @Override
 
     public Transaction updateTransaction(int id_enterprise, int id, Transaction transaction) {
-        //Transaction putTransaction = findById(id_enterprise, id);
-        //putTransaction.setAmount(transaction.getAmount());
-        //putTransaction.setConcept(transaction.getConcept());
-        //putTransaction.setEstado(transaction.isEstado());
-
-        //Enterprise empresa = enterpriseService.findById(id_enterprise);
-        //List<Transaction> movimientos = empresa.getTransactions();
-
-        //movimientos.add(putTransaction);
-        //empresa.setTransactions((ArrayList<Transaction>) movimientos);
-        //enterpriseService.updateEnterprise(id_enterprise, empresa);
-        //return putTransaction;
-        return null;
+        transaction.setCreatedAt(new Date());
+        transaction.setId(id);
+        return transactionRepository.save(transaction);
     }
     @Override
 
     public void deleteTransaction(int id_enterprise, int id) {
-        Transaction deleteTransaction = findById(id_enterprise, id);
+        transactionRepository.deleteById((long) id);
 
     }
 }

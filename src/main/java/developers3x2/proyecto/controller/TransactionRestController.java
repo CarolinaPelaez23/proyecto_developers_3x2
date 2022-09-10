@@ -42,7 +42,6 @@ private ITransactionService transactionService;
 
     @PutMapping("/enterprises/{id_enterprise}/movements/{id}")
     public Transaction updateTransaction(@PathVariable int id_enterprise, @PathVariable int id, @RequestBody Transaction transaction){
-        // captura lo enviado por el postman y lo guarda en el objeto
         return transactionService.updateTransaction(id_enterprise, id, transaction);
 
     }
